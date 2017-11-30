@@ -9,6 +9,8 @@ CREATE TABLE auction (
   item VARCHAR(45) NULL,
   category VARCHAR(45) NULL,
   description VARCHAR(45) NULL,
-  bid INTEGER(11) NULL,
+  price INTEGER(11) NULL,
+  bid INTEGER(11) NULL
+
   PRIMARY KEY (id)
 );

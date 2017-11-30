@@ -28,8 +28,8 @@ inquirer.prompt([
       choices: ["POST", "BID"]
     }
 ]).then(function(user){
-  console.log("You entered the integer: " user.choice);//user.inputNumb);
-  var finalResult = queryAction(user.choice); //user.inputNumb);
+  console.log("You entered the integer: " + user.choice);
+  var finalResult = queryAction(user.choice);
 });
 
 const incPost = () => {
@@ -61,20 +61,4 @@ const queryBids = () => {
 };
 
 
-
-// function queryAllSongs() {
-//   connection.query("SELECT * FROM songs", function(err, res) {
-//     for (var i = 0; i < res.length; i++) {
-//       console.log(res[i].id + " | " + res[i].title + " | " + res[i].artist + " | " + res[i].genre);
-//     }
-//     console.log("-----------------------------------");
-//   });
-// }
-// function queryPopSongs() {
-//   var query = connection.query("SELECT * FROM songs WHERE genre=?", ["Pop"], function(err, res) {
-//     for (var i = 0; i < res.length; i++) {
-//       console.log(res[i].id + " | " + res[i].title + " | " + res[i].artist + " | " + res[i].genre);
-//     }
-//   });
-  // logs the actual query being run
   console.log(query.sql);
