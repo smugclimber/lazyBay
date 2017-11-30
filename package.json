@@ -1,0 +1,20 @@
+{
+  "name": "lazybay",
+  "version": "1.0.0",
+  "description": "class project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smugclimber/lazyBay.git"
+  },
+  "author": "Go team lazybay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smugclimber/lazyBay/issues"
+  },
+  "homepage": "https://github.com/smugclimber/lazyBay#readme"
+}
