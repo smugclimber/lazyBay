@@ -20,6 +20,7 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId);
+});
 
 const incPostOrBid = () => {
   inquirer.prompt([
@@ -36,7 +37,7 @@ const incPostOrBid = () => {
       auctItemsList = listBids(function(){
         incSelectBidItem();
       });
-      
+
     } else {
       incPost();
     };
@@ -76,20 +77,3 @@ const incShowBids = () => {
 
 
 incPostOrBid();
-
-// function queryAllSongs() {
-//   connection.query("SELECT * FROM songs", function(err, res) {
-//     for (var i = 0; i < res.length; i++) {
-//       console.log(res[i].id + " | " + res[i].title + " | " + res[i].artist + " | " + res[i].genre);
-//     }
-//     console.log("-----------------------------------");
-//   });
-// }
-// function queryPopSongs() {
-//   var query = connection.query("SELECT * FROM songs WHERE genre=?", ["Pop"], function(err, res) {
-//     for (var i = 0; i < res.length; i++) {
-//       console.log(res[i].id + " | " + res[i].title + " | " + res[i].artist + " | " + res[i].genre);
-//     }
-//   });
-  // logs the actual query being run
-// console.log(query.sql);
