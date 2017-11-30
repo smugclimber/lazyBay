@@ -1,0 +1,14 @@
+DROP DATABASE IF EXISTS lazeebay_DB;
+
+CREATE DATABASE lazeebay_DB;
+
+USE lazeebay_DB;
+
+CREATE TABLE auction (
+  id INT NOT NULL AUTO_INCREMENT,
+  item VARCHAR(45) NULL,
+  category VARCHAR(45) NULL,
+  description VARCHAR(45) NULL,
+  bid INTEGER(11) NULL,
+  PRIMARY KEY (id)
+);
