@@ -4,7 +4,7 @@ var baeeFunc = require("./baeeFunk.js");
 var clear = require('clear');
 
 clear();
-console.log("\nWelcome to LazyBay!!!\n==================================================\nCommand Options:\n==================================================\n1)'POST an auction item'\nThis will create a new auction item for folks to bid on. Set any starting price ya like!\n\n2)'BID on a currently listed item.\nThis will show you all items available.\n\n3)'movie-this' <input movie name here>\nThis will give you lots of info for a movie you select. \n\n4)'do-what-it-says'\nThis will randomly call a LIRI command for you.\n==================================================\n" )
+console.log("\nWelcome to LazyBay!!!\n==================================================\nCommand Options:\n==================================================\n1)'POST an auction item'\nThis will create a new auction item for folks to bid on. Set any starting price ya like!\n\n2)'BID on a currently listed item.\nThis will show you all items available.\n==================================================\n" );
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -62,19 +62,19 @@ const queryBids = () => {
 
 
 
-function queryAllSongs() {
-  connection.query("SELECT * FROM songs", function(err, res) {
-    for (var i = 0; i < res.length; i++) {
-      console.log(res[i].id + " | " + res[i].title + " | " + res[i].artist + " | " + res[i].genre);
-    }
-    console.log("-----------------------------------");
-  });
-}
-function queryPopSongs() {
-  var query = connection.query("SELECT * FROM songs WHERE genre=?", ["Pop"], function(err, res) {
-    for (var i = 0; i < res.length; i++) {
-      console.log(res[i].id + " | " + res[i].title + " | " + res[i].artist + " | " + res[i].genre);
-    }
-  });
+// function queryAllSongs() {
+//   connection.query("SELECT * FROM songs", function(err, res) {
+//     for (var i = 0; i < res.length; i++) {
+//       console.log(res[i].id + " | " + res[i].title + " | " + res[i].artist + " | " + res[i].genre);
+//     }
+//     console.log("-----------------------------------");
+//   });
+// }
+// function queryPopSongs() {
+//   var query = connection.query("SELECT * FROM songs WHERE genre=?", ["Pop"], function(err, res) {
+//     for (var i = 0; i < res.length; i++) {
+//       console.log(res[i].id + " | " + res[i].title + " | " + res[i].artist + " | " + res[i].genre);
+//     }
+//   });
   // logs the actual query being run
   console.log(query.sql);
