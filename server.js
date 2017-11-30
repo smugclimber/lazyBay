@@ -3,6 +3,8 @@ var mysql = require("mysql");
 var baeeFunc = require("./baeeFunk.js");
 var clear = require('clear');
 
+var auctItemsList = ["default1", "default2", "default3"];
+
 clear();
 console.log("\nWelcome to LazyBay!!!\n==================================================\nCommand Options:\n==================================================\n1)'POST an auction item'\nThis will create a new auction item for folks to bid on. Set any starting price ya like!\n\n2)'BID on a currently listed item.\nThis will show you all items available.\n==================================================\n" );
 
@@ -19,18 +21,40 @@ connection.connect(function(err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId);
 
+const incPostOrBid = () => {
+  inquirer.prompt([
+      {
+        type: "list",
+        name: "choice",
+        message: `POST an item or BID an item:`,
+        choice: ["POST", "BID"]
+      }
+  ]).then(function(res){
+    console.log("You entered the choice: " + res.choice);
+    if(res.choice === "BID"){
+      //  ENTER ARGUMENTS WHEN AVAILABLE
+      auctItemsList = listBids(function(){
+        incSelectBidItem();
+      });
+      
+    } else {
+      incPost();
+    };
+  });
+};
 
-inquirer.prompt([
+const incSelectBidItem = () => {
+  inquirer.prompt([
     {
       type: "list",
-      name: "choice",
-      message: "POST an item or BID an item:",
-      choices: ["POST", "BID"]
-    }
-]).then(function(user){
-  console.log("You entered the integer: " user.choice);//user.inputNumb);
-  var finalResult = queryAction(user.choice); //user.inputNumb);
-});
+      name: "auctChoice",
+      message: "Select an Auction Item:",
+      choices: auctItemsList
+    },
+  ]).then(function(res){
+
+  });
+};
 
 const incPost = () => {
   inquirer.prompt([
@@ -41,26 +65,17 @@ const incPost = () => {
 
     }
   ]).then(()=>{
-
+    // ENTER ARGUMENTS WHEN AVIALABLE
+    addItem()
   });
 };
 
-
-
-
-function queryAction(choice){
-  if (choice === BID){
-
-  }else {
-    //do post action
-  }
-}
-
-const queryBids = () => {
+const incShowBids = () => {
 
 };
 
 
+incPostOrBid();
 
 // function queryAllSongs() {
 //   connection.query("SELECT * FROM songs", function(err, res) {
@@ -77,4 +92,4 @@ const queryBids = () => {
 //     }
 //   });
   // logs the actual query being run
-  console.log(query.sql);
+// console.log(query.sql);
